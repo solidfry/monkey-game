@@ -1,5 +1,7 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI.Notifications
 {
@@ -11,6 +13,9 @@ namespace UI.Notifications
         private string _description;
         [SerializeField] TMP_Text titleText;
         [SerializeField] TMP_Text descriptionText;
+
+        [SerializeField] Image icon;
+        [SerializeField] RectTransform iconBase;
 
 
         [field: SerializeField] public RectTransform RectTransform { get; private set; }
@@ -36,11 +41,12 @@ namespace UI.Notifications
             _title = notificationData.Title;
             _description = notificationData.Description;
 
-            SetValue(titleText, _title);
-            SetValue(descriptionText, _description);
+            SetTextValue(titleText, _title);
+            SetTextValue(descriptionText, _description);
+            SetIcon(icon, data.Icon, data.IconColor);
         }
 
-        public void SetValue(TMP_Text textField, string value)
+        public void SetTextValue(TMP_Text textField, string value)
         {
             if (value != string.Empty)
             {
@@ -50,6 +56,19 @@ namespace UI.Notifications
             {
                 textField.text = string.Empty;
                 textField.gameObject.SetActive(false);
+            }
+        }
+
+        public void SetIcon(Image iconField, Sprite icon, Color iconColor)
+        {
+            if (icon != null)
+            {
+                iconField.sprite = icon;
+                iconField.color = iconColor;
+            }
+            else
+            {
+                iconBase.gameObject.SetActive(false);
             }
         }
     }

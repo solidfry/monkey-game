@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Title>k__BackingField: Test Title
   <Description>k__BackingField: Test Description
+  <Icon>k__BackingField: {fileID: 21300000, guid: 3a7008fd800ecee40bc9c680e3991800, type: 3}
+  <IconColor>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
