@@ -5,10 +5,17 @@ namespace UI.Notifications
 {
     public class NotificationMessage : MonoBehaviour
     {
-        private string _message;
-        [SerializeField] TMP_Text messageText;
+        [SerializeField] NotificationData notificationData;
+        
+        private string _title;
+        private string _description;
+        [SerializeField] TMP_Text titleText;
+        [SerializeField] TMP_Text descriptionText;
+
+
         [field: SerializeField] public RectTransform RectTransform { get; private set; }
         [field: SerializeField] public CanvasGroup CanvasGroup { get; private set; }
+
 
         private void Awake()
         {
@@ -16,16 +23,34 @@ namespace UI.Notifications
             if(CanvasGroup == null) CanvasGroup = GetComponent<CanvasGroup>();
         }
 
-        private void Start()
+        public void SetMessage(NotificationData data)
         {
-            if(messageText == null)
-                messageText = GetComponentInChildren<TMP_Text>();
+            if(data == null)
+            {
+                Debug.LogError("No data was provided");
+                return;
+            }
+
+            notificationData = data;
+
+            _title = notificationData.Title;
+            _description = notificationData.Description;
+
+            SetValue(titleText, _title);
+            SetValue(descriptionText, _description);
         }
 
-        public void SetMessage(string message)
+        public void SetValue(TMP_Text textField, string value)
         {
-            this._message = message;
-            messageText.text = _message;
+            if (value != string.Empty)
+            {
+                textField.text = value;
+            }
+            else
+            {
+                textField.text = string.Empty;
+                textField.gameObject.SetActive(false);
+            }
         }
     }
 }

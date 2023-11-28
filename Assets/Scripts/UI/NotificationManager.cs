@@ -10,7 +10,9 @@ namespace UI
 {
     public class NotificationManager : SingletonPersistent<NotificationManager>
     {
-        private Queue<string> _notificationQueue = new ();
+        [SerializeField] NotificationData testData;
+
+        private Queue<NotificationData> _notificationQueue = new ();
         [SerializeField] VerticalLayoutGroup layoutGroup;
     
         readonly List<NotificationMessage> _liveMessages = new();
@@ -24,7 +26,7 @@ namespace UI
         [SerializeField] private Ease easing;
         [SerializeField] private float animationDuration = 1f;
         
-        public delegate void UINotificationEvent(string message);
+        public delegate void UINotificationEvent(NotificationData notificationData);
         public event UINotificationEvent OnUINotificationEvent;
 
         private void OnEnable()
@@ -37,11 +39,11 @@ namespace UI
             OnUINotificationEvent -= OnNotificationEvent;
         }
     
-        private void OnNotificationEvent(string message)
+        private void OnNotificationEvent(NotificationData data)
         {
-            if (!_notificationQueue.Contains(message))
+            if (!_notificationQueue.Contains(data))
             {
-                _notificationQueue.Enqueue(message);
+                _notificationQueue.Enqueue(data);
                 TryDisplayNextMessage();
             }
         }
@@ -51,7 +53,7 @@ namespace UI
             // Only proceed if there are messages in the queue and less than the max on screen.
             if (_liveMessages.Count < maxMessages && _notificationQueue.Count > 0)
             {
-                string nextMessage = _notificationQueue.Dequeue();
+                NotificationData nextMessage = _notificationQueue.Dequeue();
                 var notificationMessage = CreateMessage(nextMessage, layoutGroup.transform);
                 _liveMessages.Add(notificationMessage);
                 AnimateMessageIn(notificationMessage);
@@ -59,9 +61,9 @@ namespace UI
             }
         }
 
-        private void DequeueDuplicateMessage(string message)
+        private void DequeueDuplicateMessage(NotificationData notification)
         {
-            _notificationQueue = new Queue<string>(_notificationQueue.Where(m => m != message));
+            _notificationQueue = new Queue<NotificationData>(_notificationQueue.Where(m => m != notification));
         }
 
 
@@ -91,20 +93,20 @@ namespace UI
         }
     
 
-        private NotificationMessage CreateMessage(string message, Transform parent)
+        private NotificationMessage CreateMessage(NotificationData data, Transform parent)
         {
             var notificationMessage = Instantiate(notificationMessagePrefab, parent);
             notificationMessage.CanvasGroup.alpha = 0;
-            notificationMessage.SetMessage(message);
+            notificationMessage.SetMessage(data);
             return notificationMessage;
         }
     
         [ContextMenu("Test Notification")]
         public void TestNotification()
         {
-            DequeueDuplicateMessage("Test Notification");
-            OnUINotificationEvent?.Invoke("Test Notification");
-            Debug.Log("Test notification was invoked");
+            DequeueDuplicateMessage(testData);
+            OnUINotificationEvent?.Invoke(testData);
+            Debug.Log($"Test notification was invoked and the data was {testData.Title} and {testData.Description}");
         }
     
         private void OnDestroy()
