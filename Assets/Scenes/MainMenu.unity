@@ -488,6 +488,50 @@ MonoBehaviour:
   optionalScrambleMode: 0
   optionalShakeRandomnessMode: 0
   optionalString: 
+--- !u!1 &1718817872
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1718817874}
+  - component: {fileID: 1718817873}
+  m_Layer: 0
+  m_Name: UIAudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1718817873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718817872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3515b74ae70b26346a5d7cdadbc91e95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1718817874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718817872}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1728972361
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,6 +846,14 @@ PrefabInstance:
       propertyPath: testData
       value: 
       objectReference: {fileID: 11400000, guid: b0d7701a429fcbf4e9bb433ca81e2d8f, type: 2}
+    - target: {fileID: 8117142464648682179, guid: 1372cb6473118b741a3ad7bc924d495d, type: 3}
+      propertyPath: maxMessages
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117142464648682179, guid: 1372cb6473118b741a3ad7bc924d495d, type: 3}
+      propertyPath: messageDuration
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8638504578229987224, guid: 1372cb6473118b741a3ad7bc924d495d, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -1016,3 +1068,4 @@ SceneRoots:
   - {fileID: 920996253}
   - {fileID: 6639611019161489387}
   - {fileID: 1944428788}
+  - {fileID: 1718817874}
