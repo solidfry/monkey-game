@@ -10,8 +10,6 @@ namespace UI
 {
     public class NotificationManager : SingletonPersistent<NotificationManager>
     {
-        [SerializeField] NotificationData testData;
-
         private Queue<NotificationData> _notificationQueue = new ();
         [SerializeField] VerticalLayoutGroup layoutGroup;
     
@@ -26,8 +24,18 @@ namespace UI
         [SerializeField] private Ease easing;
         [SerializeField] private float animationDuration = 1f;
         
+        [Header("Test Values")]
+        [SerializeField] private bool showTestButton;
+        [SerializeField] NotificationData testData;
+        
         public delegate void UINotificationEvent(NotificationData notificationData);
         public event UINotificationEvent OnUINotificationEvent;
+
+        private void Start()
+        {
+            var button = GetComponentInChildren<Button>();
+            button.gameObject.SetActive(showTestButton);
+        }
 
         private void OnEnable()
         {
