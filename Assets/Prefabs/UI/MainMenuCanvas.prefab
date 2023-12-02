@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press any [Space] to continue...
+  m_text: Press any key to continue...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d968e8f36ea8fd4ab3b7c2efb324da8, type: 2}
   m_sharedMaterial: {fileID: 2508820898124179286, guid: 1d968e8f36ea8fd4ab3b7c2efb324da8, type: 2}
@@ -652,12 +652,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3476957485927722227}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

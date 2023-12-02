@@ -12,15 +12,25 @@ namespace UI
 
         private void Update()
         {
-            if (Input.GetKeyDown(button))
-            {
-                Do();
-            }
+            CheckButtonForNone();
         }
 
         private void Do()
         { 
             doEvent?.Invoke();
+        }
+        
+        private void CheckButtonForNone()
+        {
+            if (button == KeyCode.None)
+            {
+                if(Input.anyKeyDown)
+                    Do();
+            }
+            else if (Input.GetKeyDown(button))
+            {
+                Do();
+            }
         }
 
     }
