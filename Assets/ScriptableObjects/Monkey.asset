@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b6086649961414f99d8455cd711893, type: 3}
   m_Name: Monkey
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: f1318a6530254aa4682ee65d018935d9, type: 3}
   nameString: Monkey
   animalTier: 0
