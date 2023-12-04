@@ -83,5 +83,18 @@ public class DragDrop : MonoBehaviour
                 Debug.Log("Join the animals together");
             }
         }
+
+        AnimalSO[] animals = new AnimalSO[2];
+        for (int i = 0; i < animals.Length; i++)
+        {
+            if (!colliders[i].TryGetComponent<AnimalToken>(out var token))
+            {
+                i--;
+                continue;
+            }
+            animals[i] = token.AnimalData;
+        }
+
+        CombinationDatabase.CheckAnimalRecipe(animals[0], animals[1]);
     }
 }

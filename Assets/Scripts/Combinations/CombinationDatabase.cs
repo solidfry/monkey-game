@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ namespace Database
     {
         [SerializeField] private List<Recipe> recipes = new List<Recipe>();
         public static List<Recipe> StaticRecipes;
+
+        public static Action OnCorrectCombination;
 
         private void Awake()
         {
@@ -34,6 +37,8 @@ namespace Database
 
                 Debug.Log("Combined into " + recipe.output.ToString());
                 animalChoice = recipe.output;
+
+                OnCorrectCombination?.Invoke();
             }
 
             return animalChoice;
@@ -51,7 +56,7 @@ namespace Database
             }
         }
 
-        public static void GetvalidRecipe(AnimalSO input, out AnimalSO output1, out AnimalSO output2)
+        public static void GetValidRecipe(AnimalSO input, out AnimalSO output1, out AnimalSO output2)
         {
             AnimalSO tempOutput1 = null;
             AnimalSO tempOutput2 = null;

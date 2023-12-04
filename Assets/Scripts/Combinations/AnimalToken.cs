@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class AnimalToken : MonoBehaviour
 {
-    [SerializeField] AnimalSO animalData;
+    public AnimalSO AnimalData;
     [SerializeField] SpriteRenderer animalSpriteRenderer;
     [SerializeField] TMP_Text animalNameText;
     
-    void Start() => Initialise(animalData);
+    void Start() => Initialise(AnimalData);
     
     public void Initialise(AnimalSO animalData)
     {
         if(animalData == null) return;
-        this.animalData = animalData;
+        this.AnimalData = animalData;
         animalSpriteRenderer.sprite = animalData.GetSprite();
         animalNameText.text = animalData.GetNameString();
     }
@@ -23,11 +23,11 @@ public class AnimalToken : MonoBehaviour
     {
         if(ValidateValues()) return;
         
-        Initialise(animalData);
+        Initialise(AnimalData);
     }
 
-    private bool ValidateValues() => animalSpriteRenderer.sprite == animalData.GetSprite() && animalNameText.text == animalData.GetNameString();
+    private bool ValidateValues() => animalSpriteRenderer.sprite == AnimalData.GetSprite() && animalNameText.text == AnimalData.GetNameString();
 #endif
     
-    public int GetItemTier() => animalData.GetItemTier();
+    public int GetItemTier() => AnimalData.GetItemTier();
 }
