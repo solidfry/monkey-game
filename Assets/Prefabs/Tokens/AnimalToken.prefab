@@ -5096,6 +5096,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd35bc4d61b5344ab95b17414fb634f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combinationDB: {fileID: 0}
+  animationDragEase: 4
+  animationDropEase: 30
+  scaleOnDrag: 1.1
+  scaleOnDrop: 1
+  scaleDuration: 0.1
 --- !u!50 &2988353193222197538
 Rigidbody2D:
   serializedVersion: 4
