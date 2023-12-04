@@ -72,6 +72,7 @@ public class DragDrop : MonoBehaviour
     void CheckOverlap()
     {
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0f);
+        bool isOverlapping = false;
 
         foreach (Collider2D collider in colliders)
         {
@@ -80,9 +81,12 @@ public class DragDrop : MonoBehaviour
 
             if (collider.CompareTag("Animal"))
             {
+                isOverlapping = true;
                 Debug.Log("Join the animals together");
             }
         }
+
+        if (!isOverlapping) return;
 
         AnimalSO[] animals = new AnimalSO[2];
         for (int i = 0; i < animals.Length; i++)

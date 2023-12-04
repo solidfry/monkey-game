@@ -3,6 +3,7 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace EasyAudioSystem
 {
@@ -53,7 +54,6 @@ namespace EasyAudioSystem
 
             _layerTwo.source.Play();
             _layerTwo.source.volume = 0;
-
         }
 
         public void Play(string name)
@@ -82,15 +82,15 @@ namespace EasyAudioSystem
             _layerTwo.source.DOFade(0, 2f).OnComplete(() => _isLayerTwoPlaying = false); ;
         }
 
-        private void OnLevelWasLoaded(int level)
+        private void OnLevelLoaded(Scene scene, LoadSceneMode mode)
         {
-            if (level == 1)
+            if (scene.name == "Game")
             {
                 // game scene
-                _layerOne.source.DOFade(_soundtrackVolume, 3f);
+                _layerOne.source.DOFade(_soundtrackVolume - 0.2f, 3f);
             }
 
-            else if (level == 0)
+            else if (scene.name == "MainMenu")
             {
                 // main menu scene
                 _layerOne.source.DOFade(0, 3f);
@@ -100,6 +100,7 @@ namespace EasyAudioSystem
         private void OnEnable()
         {
             CombinationDatabase.OnCorrectCombination += StartLayerTwoFade;
+            SceneManager.sceneLoaded += OnLevelLoaded;
         }
         private void OnDisable()
         {
