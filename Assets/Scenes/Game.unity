@@ -637,7 +637,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: c1f4494933513684495227b29969e844, type: 2}
     - target: {fileID: 6999827878554874918, guid: 5278cc5656b4c884692f9c46347d4f82, type: 3}
       propertyPath: m_text
-      value: Red Panda
+      value: Dolphin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1016,7 +1016,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: b423720de838cd043a88cb98b8c64a40, type: 2}
     - target: {fileID: 6999827878554874918, guid: 5278cc5656b4c884692f9c46347d4f82, type: 3}
       propertyPath: m_text
-      value: Gorilla
+      value: Human
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2122,7 +2122,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 18a06c8dc094b644da23f8004ccd87d4, type: 2}
     - target: {fileID: 6999827878554874918, guid: 5278cc5656b4c884692f9c46347d4f82, type: 3}
       propertyPath: m_text
-      value: Squid
+      value: Manatee
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2303,7 +2303,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 1827dfb43159fd84c8b1b0f0ce996dfc, type: 2}
     - target: {fileID: 6999827878554874918, guid: 5278cc5656b4c884692f9c46347d4f82, type: 3}
       propertyPath: m_text
-      value: Manatee
+      value: Kangaroo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2452,7 +2452,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: b4b39e78b19513f449d52481df2a291f, type: 2}
     - target: {fileID: 6999827878554874918, guid: 5278cc5656b4c884692f9c46347d4f82, type: 3}
       propertyPath: m_text
-      value: Kangaroo
+      value: Red Panda
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2523,18 +2523,6 @@ PrefabInstance:
     - target: {fileID: 2182922472939796006, guid: 5278cc5656b4c884692f9c46347d4f82, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2742955229854384316, guid: 5278cc5656b4c884692f9c46347d4f82, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: bdcc44c0c9f2e88498f55371a09d9df3, type: 3}
-    - target: {fileID: 2880308449630362655, guid: 5278cc5656b4c884692f9c46347d4f82, type: 3}
-      propertyPath: AnimalData
-      value: 
-      objectReference: {fileID: 11400000, guid: a66661ae700612349a3f79dbd6e8b06c, type: 2}
-    - target: {fileID: 6999827878554874918, guid: 5278cc5656b4c884692f9c46347d4f82, type: 3}
-      propertyPath: m_text
-      value: Dove
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3036,7 +3024,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 21b66549d6395424580b606d38679da2, type: 2}
     - target: {fileID: 6999827878554874918, guid: 5278cc5656b4c884692f9c46347d4f82, type: 3}
       propertyPath: m_text
-      value: Dog
+      value: Squid
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3472,7 +3460,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 4e1e95d276424ae4dbf3fa838e284ddb, type: 2}
     - target: {fileID: 6999827878554874918, guid: 5278cc5656b4c884692f9c46347d4f82, type: 3}
       propertyPath: m_text
-      value: Dolphin
+      value: Gorilla
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3816,10 +3804,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2742955229854384316, guid: 5278cc5656b4c884692f9c46347d4f82, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f1318a6530254aa4682ee65d018935d9, type: 3}
     - target: {fileID: 2880308449630362655, guid: 5278cc5656b4c884692f9c46347d4f82, type: 3}
       propertyPath: AnimalData
       value: 
       objectReference: {fileID: 11400000, guid: 9924e4bf4a01704409a63a39499d7256, type: 2}
+    - target: {fileID: 6999827878554874918, guid: 5278cc5656b4c884692f9c46347d4f82, type: 3}
+      propertyPath: m_text
+      value: Monkey
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

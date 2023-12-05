@@ -7,7 +7,8 @@ public class DragDrop : MonoBehaviour
 {
     private Rigidbody2D animalRB;
     private Vector2 offset;
-
+    public AnimalToken animalToken;
+    [SerializeField] private GameObject animalTokenPrefab;
     [SerializeField] private CombinationDatabase combinationDB;
 
    
@@ -76,8 +77,7 @@ public class DragDrop : MonoBehaviour
 
         foreach (Collider2D collider in colliders)
         {
-            if (collider == GetComponent<Collider2D>())
-                continue;
+          
 
             if (collider.CompareTag("Animal"))
             {
@@ -99,6 +99,8 @@ public class DragDrop : MonoBehaviour
             animals[i] = token.AnimalData;
         }
 
-        CombinationDatabase.CheckAnimalRecipe(animals[0], animals[1]);
+        var newAnimal = CombinationDatabase.CheckAnimalRecipe(animals[0], animals[1]);
+        Instantiate(animalTokenPrefab);
+        animalToken.Initialise(newAnimal);
     }
 }
