@@ -3,6 +3,7 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace EasyAudioSystem
 {
@@ -55,6 +56,18 @@ namespace EasyAudioSystem
             _layerTwo.source.volume = 0;
 
         }
+        
+        private void OnEnable()
+        {
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            CombinationDatabase.OnCorrectCombination += StartLayerTwoFade;
+        }
+        
+        private void OnDisable()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+            CombinationDatabase.OnCorrectCombination -= StartLayerTwoFade;
+        }
 
         public void Play(string name)
         {
@@ -81,29 +94,21 @@ namespace EasyAudioSystem
             yield return new WaitForSeconds(4);
             _layerTwo.source.DOFade(0, 2f).OnComplete(() => _isLayerTwoPlaying = false); ;
         }
-
-        private void OnLevelWasLoaded(int level)
+        
+        private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
         {
-            if (level == 1)
+            switch (arg0.buildIndex)
             {
-                // game scene
-                _layerOne.source.DOFade(_soundtrackVolume, 3f);
+                case 1:
+                    // game scene
+                    _layerOne.source.DOFade(_soundtrackVolume, 3f);
+                    break;
+                case 0:
+                    // main menu scene
+                    _layerOne.source.DOFade(0, 3f);
+                    break;
             }
-
-            else if (level == 0)
-            {
-                // main menu scene
-                _layerOne.source.DOFade(0, 3f);
-            }
         }
-
-        private void OnEnable()
-        {
-            CombinationDatabase.OnCorrectCombination += StartLayerTwoFade;
-        }
-        private void OnDisable()
-        {
-            CombinationDatabase.OnCorrectCombination -= StartLayerTwoFade;
-        }
+        
     }
 }

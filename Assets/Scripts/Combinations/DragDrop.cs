@@ -27,6 +27,8 @@ public class DragDrop : MonoBehaviour
     [SerializeField] private int punchVibrato = 2;
     [SerializeField] private float punchElasticity = 4f;
     [SerializeField] Vector2 punch = new Vector2(.1f, .3f);
+
+    private AnimalSO[] animals = new AnimalSO[2];
     
     private TweenParams dragParams => new TweenParams().SetEase(animationDragEase);
     private TweenParams dropParams => new TweenParams().SetEase(animationDropEase);
@@ -84,7 +86,8 @@ public class DragDrop : MonoBehaviour
             }
         }
 
-        AnimalSO[] animals = new AnimalSO[2];
+        if(colliders.Length < 2) return;
+
         for (int i = 0; i < animals.Length; i++)
         {
             if (!colliders[i].TryGetComponent<AnimalToken>(out var token))
@@ -92,7 +95,7 @@ public class DragDrop : MonoBehaviour
                 i--;
                 continue;
             }
-            animals[i] = token.AnimalData;
+            animals[i] = token.GetAnimalData();
         }
 
         CombinationDatabase.CheckAnimalRecipe(animals[0], animals[1]);

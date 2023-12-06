@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimalToken : MonoBehaviour
 {
-    public AnimalSO AnimalData;
+    [SerializeField] AnimalSO AnimalData;
     [SerializeField] SpriteRenderer animalSpriteRenderer;
     [SerializeField] TMP_Text animalNameText;
     
@@ -26,8 +26,18 @@ public class AnimalToken : MonoBehaviour
         Initialise(AnimalData);
     }
 
-    private bool ValidateValues() => animalSpriteRenderer.sprite == AnimalData.GetSprite() && animalNameText.text == AnimalData.GetNameString();
+    private bool ValidateValues()
+    {
+        if (AnimalData != null)
+        {
+            return animalSpriteRenderer.sprite == AnimalData.GetSprite() &&
+                   animalNameText.text == AnimalData.GetNameString();
+        }
+        return false;
+    }
 #endif
     
     public int GetItemTier() => AnimalData.GetItemTier();
+    
+    public AnimalSO GetAnimalData() => AnimalData;
 }
