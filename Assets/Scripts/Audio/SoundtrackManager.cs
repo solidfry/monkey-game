@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 namespace EasyAudioSystem
 {
-    public class SoundtrackManager : MonoBehaviour
+    public class SoundtrackManager : SingletonPersistent<SoundtrackManager>
     {
         public static SoundtrackManager Instance;
 
@@ -21,19 +21,9 @@ namespace EasyAudioSystem
 
         private bool _isLayerTwoPlaying = false;
 
-        private void Awake()
+       public override void Awake()
         {
-            if (Instance == null)
-            {
-                Instance = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-                return;
-            }
-            DontDestroyOnLoad(gameObject);
-
+            base.Awake();
             foreach (Sound s in Sounds)
             {
                 s.source = gameObject.AddComponent<AudioSource>();
@@ -48,6 +38,7 @@ namespace EasyAudioSystem
             _layerTwo = Sounds[2];
 
             _base.source.Play();
+            _base.source.volume = _soundtrackVolume;    
 
             _layerOne.source.Play();
             _layerOne.source.volume = 0;
@@ -79,7 +70,7 @@ namespace EasyAudioSystem
         private IEnumerator CompleteLayerTwoFade()
         {
             yield return new WaitForSeconds(4);
-            _layerTwo.source.DOFade(0, 2f).OnComplete(() => _isLayerTwoPlaying = false); ;
+            _layerTwo.source.DOFade(0, 2f).OnComplete(() => _isLayerTwoPlaying = false);
         }
 
         private void OnLevelLoaded(Scene scene, LoadSceneMode mode)
