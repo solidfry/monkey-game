@@ -7,7 +7,7 @@ public class DragDrop : MonoBehaviour
 {
     private Rigidbody2D animalRB;
     private Vector2 offset;
-    public AnimalToken animalToken;
+
     [SerializeField] private GameObject animalTokenPrefab;
     [SerializeField] private CombinationDatabase combinationDB;
 
@@ -73,22 +73,21 @@ public class DragDrop : MonoBehaviour
     void CheckOverlap()
     {
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0f);
-        bool isOverlapping = false;
+        bool isOverlapping = true;
 
         foreach (Collider2D collider in colliders)
         {
           
 
-            if (collider.CompareTag("Animal"))
+            if (!collider.CompareTag("Animal"))
             {
-                isOverlapping = true;
-                Debug.Log("Join the animals together");
+                isOverlapping = false;
             }
         }
 
         if (!isOverlapping) return;
 
-        AnimalSO[] animals = new AnimalSO[2];
+        AnimalToken[] animals = new AnimalToken[2];
         for (int i = 0; i < animals.Length; i++)
         {
             if (!colliders[i].TryGetComponent<AnimalToken>(out var token))
@@ -96,11 +95,15 @@ public class DragDrop : MonoBehaviour
                 i--;
                 continue;
             }
-            animals[i] = token.AnimalData;
+            animals[i] = token;
         }
 
-        var newAnimal = CombinationDatabase.CheckAnimalRecipe(animals[0], animals[1]);
-        Instantiate(animalTokenPrefab);
-        animalToken.Initialise(newAnimal);
+        var newAnimal = CombinationDatabase.CheckAnimalRecipe(animals[0].AnimalData, animals[1].AnimalData);
+        if (newAnimal != null)
+        {
+            GameObject newToken = Instantiate(animalTokenPrefab);
+            newToken.GetComponent<AnimalToken>().Initialise(newAnimal);
+            foreach (var animal in animals) Destroy(animal.gameObject);
+        }
     }
 }

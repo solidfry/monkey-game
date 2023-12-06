@@ -1527,86 +1527,26 @@ MonoBehaviour:
     - {fileID: 11400000, guid: b8b242a6271f57041b40af40c1b68057, type: 2}
     - {fileID: 11400000, guid: fd8aa25cd6dedc94d92f09e30d85b8c1, type: 2}
     output: {fileID: 11400000, guid: 9924e4bf4a01704409a63a39499d7256, type: 2}
-  - nameString: Dove
-    inputs:
-    - {fileID: 11400000, guid: a66661ae700612349a3f79dbd6e8b06c, type: 2}
-    - {fileID: 11400000, guid: a66661ae700612349a3f79dbd6e8b06c, type: 2}
-    output: {fileID: 11400000, guid: a66661ae700612349a3f79dbd6e8b06c, type: 2}
-  - nameString: Duck
-    inputs:
-    - {fileID: 11400000, guid: c1cf9061a7fa68c4d8d12f3a83907df9, type: 2}
-    - {fileID: 11400000, guid: c1cf9061a7fa68c4d8d12f3a83907df9, type: 2}
-    output: {fileID: 11400000, guid: c1cf9061a7fa68c4d8d12f3a83907df9, type: 2}
   - nameString: Flamingo
     inputs:
     - {fileID: 11400000, guid: c1cf9061a7fa68c4d8d12f3a83907df9, type: 2}
     - {fileID: 11400000, guid: a66661ae700612349a3f79dbd6e8b06c, type: 2}
     output: {fileID: 11400000, guid: b42f3944c3c7d8b43a2115a6d0a7bb45, type: 2}
-  - nameString: Wolf
-    inputs:
-    - {fileID: 11400000, guid: ca1757a56f1c0304cb1f31cf7dcd0a17, type: 2}
-    - {fileID: 11400000, guid: ca1757a56f1c0304cb1f31cf7dcd0a17, type: 2}
-    output: {fileID: 11400000, guid: ca1757a56f1c0304cb1f31cf7dcd0a17, type: 2}
-  - nameString: Hyena
-    inputs:
-    - {fileID: 11400000, guid: 971627b5a85f3ee4ca97678ed8821f3b, type: 2}
-    - {fileID: 11400000, guid: 971627b5a85f3ee4ca97678ed8821f3b, type: 2}
-    output: {fileID: 11400000, guid: 971627b5a85f3ee4ca97678ed8821f3b, type: 2}
   - nameString: Dog
     inputs:
     - {fileID: 11400000, guid: 971627b5a85f3ee4ca97678ed8821f3b, type: 2}
     - {fileID: 11400000, guid: ca1757a56f1c0304cb1f31cf7dcd0a17, type: 2}
     output: {fileID: 11400000, guid: 8cb8569628c782c4a90a141148afa40b, type: 2}
-  - nameString: Tapir
-    inputs:
-    - {fileID: 11400000, guid: a9599298869f60d44bfe31350ffbf74d, type: 2}
-    - {fileID: 11400000, guid: a9599298869f60d44bfe31350ffbf74d, type: 2}
-    output: {fileID: 11400000, guid: a9599298869f60d44bfe31350ffbf74d, type: 2}
-  - nameString: Sloth
-    inputs:
-    - {fileID: 11400000, guid: e40c0dcad1b9f0c4fbfa83fc6595de3a, type: 2}
-    - {fileID: 11400000, guid: e40c0dcad1b9f0c4fbfa83fc6595de3a, type: 2}
-    output: {fileID: 11400000, guid: e40c0dcad1b9f0c4fbfa83fc6595de3a, type: 2}
   - nameString: Panda
     inputs:
     - {fileID: 11400000, guid: e40c0dcad1b9f0c4fbfa83fc6595de3a, type: 2}
     - {fileID: 11400000, guid: a9599298869f60d44bfe31350ffbf74d, type: 2}
     output: {fileID: 11400000, guid: 0432b34141bf59945b27065ffc7cc51c, type: 2}
-  - nameString: Raccoon
-    inputs:
-    - {fileID: 11400000, guid: ec376fb934896034483d591c6a8878da, type: 2}
-    - {fileID: 11400000, guid: ec376fb934896034483d591c6a8878da, type: 2}
-    output: {fileID: 11400000, guid: ec376fb934896034483d591c6a8878da, type: 2}
   - nameString: Koala
     inputs:
     - {fileID: 11400000, guid: ec376fb934896034483d591c6a8878da, type: 2}
     - {fileID: 11400000, guid: e40c0dcad1b9f0c4fbfa83fc6595de3a, type: 2}
     output: {fileID: 11400000, guid: af6d5c5d95190a244b5e2578aeedc2a9, type: 2}
-  - nameString: Ox
-    inputs:
-    - {fileID: 11400000, guid: d54b372f99837cd4b8f440356b876083, type: 2}
-    - {fileID: 11400000, guid: d54b372f99837cd4b8f440356b876083, type: 2}
-    output: {fileID: 11400000, guid: d54b372f99837cd4b8f440356b876083, type: 2}
-  - nameString: Elephant
-    inputs:
-    - {fileID: 11400000, guid: 2ec926db07f1242458ae8b17c75659de, type: 2}
-    - {fileID: 11400000, guid: 2ec926db07f1242458ae8b17c75659de, type: 2}
-    output: {fileID: 11400000, guid: 2ec926db07f1242458ae8b17c75659de, type: 2}
-  - nameString: Beaver
-    inputs:
-    - {fileID: 11400000, guid: f9d16f039f55b9149ab4676d488b165e, type: 2}
-    - {fileID: 11400000, guid: f9d16f039f55b9149ab4676d488b165e, type: 2}
-    output: {fileID: 11400000, guid: f9d16f039f55b9149ab4676d488b165e, type: 2}
-  - nameString: Platypus
-    inputs:
-    - {fileID: 11400000, guid: b183deee9f37d24449c94dace520de22, type: 2}
-    - {fileID: 11400000, guid: b183deee9f37d24449c94dace520de22, type: 2}
-    output: {fileID: 11400000, guid: b183deee9f37d24449c94dace520de22, type: 2}
-  - nameString: Walurs
-    inputs:
-    - {fileID: 11400000, guid: 947c96c83fe7e094aa586efe13603ab4, type: 2}
-    - {fileID: 11400000, guid: 947c96c83fe7e094aa586efe13603ab4, type: 2}
-    output: {fileID: 11400000, guid: 947c96c83fe7e094aa586efe13603ab4, type: 2}
   - nameString: Sea Otter
     inputs:
     - {fileID: 11400000, guid: c1cf9061a7fa68c4d8d12f3a83907df9, type: 2}

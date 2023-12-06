@@ -15,3 +15,4 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: c59c6d0961df00c4db9346be6635d38e, type: 3}
   nameString: Duck
   animalTier: 0
+  prefab: {fileID: 1592067509177353388, guid: 5278cc5656b4c884692f9c46347d4f82, type: 3}

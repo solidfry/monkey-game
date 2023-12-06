@@ -15,3 +15,4 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 1b576f3dcc5f0cc4a828cb95469015da, type: 3}
   nameString: Ox
   animalTier: 0
+  prefab: {fileID: 1592067509177353388, guid: 5278cc5656b4c884692f9c46347d4f82, type: 3}

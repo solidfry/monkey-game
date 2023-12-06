@@ -15,3 +15,4 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 1810a44b9b5dc6046b687276587346a3, type: 3}
   nameString: Hyena
   animalTier: 0
+  prefab: {fileID: 1592067509177353388, guid: 5278cc5656b4c884692f9c46347d4f82, type: 3}

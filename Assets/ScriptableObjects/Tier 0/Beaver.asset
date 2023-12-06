@@ -15,3 +15,4 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 14d5d9071946430418a6c259d356a6fa, type: 3}
   nameString: Beaver
   animalTier: 0
+  prefab: {fileID: 1592067509177353388, guid: 5278cc5656b4c884692f9c46347d4f82, type: 3}

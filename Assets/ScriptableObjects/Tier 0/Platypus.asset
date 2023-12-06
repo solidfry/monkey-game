@@ -15,3 +15,4 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 2b1864c7adce5054590d5935c939bd71, type: 3}
   nameString: Platypus
   animalTier: 0
+  prefab: {fileID: 1592067509177353388, guid: 5278cc5656b4c884692f9c46347d4f82, type: 3}

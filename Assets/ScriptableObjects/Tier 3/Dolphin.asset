@@ -15,3 +15,4 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: bc317a728c35631408b66853836a567e, type: 3}
   nameString: Dolphin
   animalTier: 3
+  prefab: {fileID: 1592067509177353388, guid: 5278cc5656b4c884692f9c46347d4f82, type: 3}

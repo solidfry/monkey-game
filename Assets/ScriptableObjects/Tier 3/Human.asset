@@ -15,3 +15,4 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: b9b64b2d775b9344eb61b332db5557af, type: 3}
   nameString: Human
   animalTier: 4
+  prefab: {fileID: 1592067509177353388, guid: 5278cc5656b4c884692f9c46347d4f82, type: 3}

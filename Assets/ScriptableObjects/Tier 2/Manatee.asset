@@ -15,3 +15,4 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 9ceb2e2294b1ca34384e883e8c5d5687, type: 3}
   nameString: Manatee
   animalTier: 2
+  prefab: {fileID: 1592067509177353388, guid: 5278cc5656b4c884692f9c46347d4f82, type: 3}

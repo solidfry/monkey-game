@@ -15,3 +15,4 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 8d0aedac343f09f4fa8d86f68be3a78b, type: 3}
   nameString: Squid
   animalTier: 2
+  prefab: {fileID: 1592067509177353388, guid: 5278cc5656b4c884692f9c46347d4f82, type: 3}

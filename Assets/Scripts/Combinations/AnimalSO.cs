@@ -10,6 +10,7 @@ namespace Database
         [SerializeField] private Sprite sprite;
         [SerializeField] private string nameString;
         [SerializeField] private int animalTier;
+        [SerializeField] private GameObject prefab;
 
         public int GetItemTier()
         {
@@ -24,6 +25,11 @@ namespace Database
         public string GetNameString()
         {
             return nameString;
+        }
+
+        public GameObject GetPrefab()
+        {
+            return prefab;
         }
     }
 }
