@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73b6086649961414f99d8455cd711893, type: 3}
-  m_Name: Cow
+  m_Name: Sea Otter
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 836fcd82a49c6024d96794056fa6278e, type: 3}
-  nameString: Cow
-  animalTier: 0
+  sprite: {fileID: 21300000, guid: 5d32017b4af43094686dd51c8d2a8410, type: 3}
+  nameString: Sea Otter
+  animalTier: 1

@@ -8,6 +8,7 @@ public class DragDrop : MonoBehaviour
     private Rigidbody2D animalRB;
     private Vector2 offset;
 
+    [SerializeField] private GameObject animalTokenPrefab;
     [SerializeField] private CombinationDatabase combinationDB;
 
    
@@ -27,8 +28,6 @@ public class DragDrop : MonoBehaviour
     [SerializeField] private int punchVibrato = 2;
     [SerializeField] private float punchElasticity = 4f;
     [SerializeField] Vector2 punch = new Vector2(.1f, .3f);
-
-    private AnimalSO[] animals = new AnimalSO[2];
     
     private TweenParams dragParams => new TweenParams().SetEase(animationDragEase);
     private TweenParams dropParams => new TweenParams().SetEase(animationDropEase);
@@ -74,20 +73,21 @@ public class DragDrop : MonoBehaviour
     void CheckOverlap()
     {
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0f);
+        bool isOverlapping = true;
 
         foreach (Collider2D collider in colliders)
         {
-            if (collider == GetComponent<Collider2D>())
-                continue;
+          
 
-            if (collider.CompareTag("Animal"))
+            if (!collider.CompareTag("Animal"))
             {
-                Debug.Log("Join the animals together");
+                isOverlapping = false;
             }
         }
 
-        if(colliders.Length < 2) return;
+        if (!isOverlapping) return;
 
+        AnimalToken[] animals = new AnimalToken[2];
         for (int i = 0; i < animals.Length; i++)
         {
             if (!colliders[i].TryGetComponent<AnimalToken>(out var token))
@@ -95,9 +95,15 @@ public class DragDrop : MonoBehaviour
                 i--;
                 continue;
             }
-            animals[i] = token.GetAnimalData();
+            animals[i] = token;
         }
 
-        CombinationDatabase.CheckAnimalRecipe(animals[0], animals[1]);
+        var newAnimal = CombinationDatabase.CheckAnimalRecipe(animals[0].AnimalData, animals[1].AnimalData);
+        if (newAnimal != null)
+        {
+            GameObject newToken = Instantiate(animalTokenPrefab);
+            newToken.GetComponent<AnimalToken>().Initialise(newAnimal);
+            foreach (var animal in animals) Destroy(animal.gameObject);
+        }
     }
 }

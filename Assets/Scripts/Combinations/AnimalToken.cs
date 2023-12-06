@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class AnimalToken : MonoBehaviour
 {
-    [SerializeField] AnimalSO AnimalData;
+    public AnimalSO AnimalData;
     [SerializeField] SpriteRenderer animalSpriteRenderer;
     [SerializeField] TMP_Text animalNameText;
     
-    void Start() => Initialise(AnimalData);
+    //void Start() => Initialise(AnimalData);
     
     public void Initialise(AnimalSO animalData)
     {
         if(animalData == null) return;
-        this.AnimalData = animalData;
+        Debug.Log(animalData.GetNameString() + " initialised");
+        AnimalData = animalData;
         animalSpriteRenderer.sprite = animalData.GetSprite();
         animalNameText.text = animalData.GetNameString();
     }
     
-#if UNITY_EDITOR
+/*#if UNITY_EDITOR
     private void OnValidate()
     {
         if(ValidateValues()) return;
@@ -26,18 +27,8 @@ public class AnimalToken : MonoBehaviour
         Initialise(AnimalData);
     }
 
-    private bool ValidateValues()
-    {
-        if (AnimalData != null)
-        {
-            return animalSpriteRenderer.sprite == AnimalData.GetSprite() &&
-                   animalNameText.text == AnimalData.GetNameString();
-        }
-        return false;
-    }
+    private bool ValidateValues() => animalSpriteRenderer.sprite == AnimalData.GetSprite() && animalNameText.text == AnimalData.GetNameString();
 #endif
     
-    public int GetItemTier() => AnimalData.GetItemTier();
-    
-    public AnimalSO GetAnimalData() => AnimalData;
+    public int GetItemTier() => AnimalData.GetItemTier();*/
 }

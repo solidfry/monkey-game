@@ -8,6 +8,7 @@ namespace Database
 {
     public class CombinationDatabase : MonoBehaviour
     {
+
         [SerializeField] private List<Recipe> recipes = new List<Recipe>();
         public static List<Recipe> StaticRecipes;
 
@@ -36,6 +37,7 @@ namespace Database
                 if (!AreInputsIdentical(recipe.inputs[0], itemInput2) && !AreInputsIdentical(recipe.inputs[1], itemInput2)) continue;
 
                 Debug.Log("Combined into " + recipe.output.ToString());
+                // instantiate a completed recipe
                 animalChoice = recipe.output;
 
                 OnCorrectCombination?.Invoke();

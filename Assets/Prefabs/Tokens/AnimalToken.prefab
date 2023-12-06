@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: f1318a6530254aa4682ee65d018935d9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bdcc44c0c9f2e88498f55371a09d9df3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941a15b52cebce94bbe291f9dafc6f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animalData: {fileID: 11400000, guid: 9924e4bf4a01704409a63a39499d7256, type: 2}
+  AnimalData: {fileID: 11400000, guid: a66661ae700612349a3f79dbd6e8b06c, type: 2}
   animalSpriteRenderer: {fileID: 2742955229854384316}
   animalNameText: {fileID: 6999827878554874918}
 --- !u!198 &3548088201800551344
@@ -5096,12 +5096,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd35bc4d61b5344ab95b17414fb634f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalToken: {fileID: 2880308449630362655}
+  animalTokenPrefab: {fileID: 1592067509177353388}
   combinationDB: {fileID: 0}
   animationDragEase: 4
   animationDropEase: 30
   scaleOnDrag: 1.1
   scaleOnDrop: 1
   scaleDuration: 0.1
+  punchDuration: 0.2
+  punchVibrato: 2
+  punchElasticity: 4
+  punch: {x: 0.1, y: 0.3}
 --- !u!50 &2988353193222197538
 Rigidbody2D:
   serializedVersion: 4
@@ -5228,7 +5234,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Monkey
+  m_text: Dove
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7e7278aa8b6cf5a419f724db0e837469, type: 2}
   m_sharedMaterial: {fileID: 8980813068847771290, guid: 7e7278aa8b6cf5a419f724db0e837469, type: 2}
