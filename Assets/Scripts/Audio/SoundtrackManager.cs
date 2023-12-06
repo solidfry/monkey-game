@@ -105,6 +105,7 @@ namespace EasyAudioSystem
         private void OnDisable()
         {
             CombinationDatabase.OnCorrectCombination -= StartLayerTwoFade;
+            SceneManager.sceneLoaded -= OnLevelLoaded;
         }
     }
 }

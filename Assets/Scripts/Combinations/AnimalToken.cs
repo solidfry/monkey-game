@@ -19,7 +19,7 @@ public class AnimalToken : MonoBehaviour
         animalNameText.text = animalData.GetNameString();
     }
     
-/*#if UNITY_EDITOR
+#if UNITY_EDITOR
     private void OnValidate()
     {
         if(ValidateValues()) return;
@@ -30,5 +30,5 @@ public class AnimalToken : MonoBehaviour
     private bool ValidateValues() => animalSpriteRenderer.sprite == AnimalData.GetSprite() && animalNameText.text == AnimalData.GetNameString();
 #endif
     
-    public int GetItemTier() => AnimalData.GetItemTier();*/
+    public int GetItemTier() => AnimalData.GetItemTier();
 }

@@ -1,3 +1,4 @@
+using System;
 using Database;
 using DG.Tweening;
 using UnityEngine;
@@ -29,31 +30,37 @@ public class DragDrop : MonoBehaviour
     [SerializeField] private float punchElasticity = 4f;
     [SerializeField] Vector2 punch = new Vector2(.1f, .3f);
     
-    private TweenParams dragParams => new TweenParams().SetEase(animationDragEase);
-    private TweenParams dropParams => new TweenParams().SetEase(animationDropEase);
+    AnimalToken[] animals = new AnimalToken[2];
 
-    private Sequence Drag => DOTween.Sequence()
-        .Append(transform.DOScale(scaleOnDrag, scaleDuration).SetAs(dragParams).SetAutoKill(false));
-    private Sequence Drop => DOTween.Sequence()
-        .Append(transform.DOScale(scaleOnDrop, scaleDuration)
-            .SetAs(dropParams))
-        .AppendCallback(() =>
-        {
-            transform.DOPunchScale(punch, punchDuration, punchVibrato, punchElasticity);
-        }).SetAutoKill(false); 
+    private Tween dragScale => transform.DOScale(scaleOnDrag, scaleDuration);
+    private Tween dropScale => transform.DOScale(scaleOnDrop, scaleDuration);
+    private Tween dropPunch => transform.DOPunchScale(punch, punchDuration, punchVibrato, punchElasticity);
+    private TweenParams dragParams => new TweenParams().SetEase(animationDragEase).SetAutoKill(false).SetRecyclable(false);
+    private TweenParams dropParams => new TweenParams().SetEase(animationDropEase).SetAutoKill(false).SetRecyclable(false);
+
+    private Sequence Drag => 
+        DOTween.Sequence()
+        .Append(dragScale)
+        .SetAs(dragParams);
+    private Sequence Drop => 
+        DOTween.Sequence()
+        .Append(dropScale).AppendCallback(()=>dropPunch.Play())
+        .SetAs(dropParams); 
 
     void Start()
     {
         animalRB = GetComponent<Rigidbody2D>();
         animalRB.bodyType = RigidbodyType2D.Kinematic;
-       
     }
 
     void OnMouseDown()
     {
         offset = (Vector2)transform.position - (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if(Drop == null || Drag == null) return;
+        
         Drop.Rewind();
         Drag.Play();
+        
     }
 
     void OnMouseDrag()
@@ -66,10 +73,14 @@ public class DragDrop : MonoBehaviour
     {
         // Check for overlap after releasing the object
         CheckOverlap();
+        
+        if(Drop == null || Drag == null) return;
+        
         Drop.Play();
         Drag.Rewind();
+        
     }
-    
+
     void CheckOverlap()
     {
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0f);
@@ -77,17 +88,14 @@ public class DragDrop : MonoBehaviour
 
         foreach (Collider2D collider in colliders)
         {
-          
-
             if (!collider.CompareTag("Animal"))
             {
                 isOverlapping = false;
             }
         }
 
-        if (!isOverlapping) return;
-
-        AnimalToken[] animals = new AnimalToken[2];
+        if (!isOverlapping || colliders.Length != 2) return;
+        
         for (int i = 0; i < animals.Length; i++)
         {
             if (!colliders[i].TryGetComponent<AnimalToken>(out var token))
@@ -103,7 +111,15 @@ public class DragDrop : MonoBehaviour
         {
             GameObject newToken = Instantiate(animalTokenPrefab);
             newToken.GetComponent<AnimalToken>().Initialise(newAnimal);
-            foreach (var animal in animals) Destroy(animal.gameObject);
+            foreach (var animal in animals)
+            {
+                GameObject animalGo = animal.gameObject;
+                animalGo.SetActive(false);
+                Destroy(animalGo.gameObject,1);
+            }
+            
         }
+        
+        Array.Clear(animals, 0, animals.Length);
     }
 }
