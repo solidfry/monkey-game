@@ -10,7 +10,7 @@ namespace Combinations
 {
     public class DragDrop : MonoBehaviour
     {
-        private Rigidbody2D _animalRb;
+        [SerializeField] private Rigidbody2D _animalRb;
         private Vector2 _offset;
 
         [SerializeField] private GameObject animalTokenPrefab;
@@ -146,6 +146,17 @@ namespace Combinations
             }
         
             Array.Clear(_animals, 0, _animals.Length);
+        }
+
+        public void ExternalDrag()
+        {
+            if (Camera.main != null)
+            {
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                _animalRb.MovePosition(mousePosition + _offset);
+            }
+
+            transform.localScale = Vector3.one * scaleOnDrag;
         }
     }
 }

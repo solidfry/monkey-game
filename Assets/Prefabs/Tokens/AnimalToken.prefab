@@ -5096,6 +5096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd35bc4d61b5344ab95b17414fb634f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animalRb: {fileID: 2988353193222197538}
   animalTokenPrefab: {fileID: 1592067509177353388}
   animationDragEase: 4
   animationDropEase: 30
