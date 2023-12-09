@@ -10,14 +10,21 @@ namespace Database
     {
 
         [SerializeField] private List<Recipe> recipes = new List<Recipe>();
+        [SerializeField] private AnimalSO _human;
         public static List<Recipe> StaticRecipes;
 
-        public static Action OnCorrectCombination;
+        private static AnimalSO _staticHuman;
+
+        public static Action<AnimalSO> OnCorrectCombination;
+        public static Action OnFinalCombination;
 
         private void Awake()
         {
             StaticRecipes = null;
             StaticRecipes = new List<Recipe>(recipes);
+
+            _staticHuman = null;
+            _staticHuman = _human;
         }
 
         public static AnimalSO CheckIfRecipieValid(AnimalSO animalInput1, AnimalSO animalInput2)
@@ -31,6 +38,9 @@ namespace Database
         {
             AnimalSO animalChoice = null;
 
+            // This line will break things if any recipes are made up of two of the same animal.
+            if (AreInputsIdentical(itemInput1, itemInput2)) return animalChoice;
+
             foreach (Recipe recipe in StaticRecipes)
             {
                 if (!AreInputsIdentical(recipe.inputs[0], itemInput1) && !AreInputsIdentical(recipe.inputs[1], itemInput1)) continue;
@@ -40,7 +50,12 @@ namespace Database
                 // instantiate a completed recipe
                 animalChoice = recipe.output;
 
-                OnCorrectCombination?.Invoke();
+                OnCorrectCombination?.Invoke(animalChoice);
+
+                if (animalChoice == _staticHuman)
+                {
+                    OnFinalCombination?.Invoke();
+                }
             }
 
             return animalChoice;

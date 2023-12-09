@@ -652,6 +652,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClientNotificationManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7145999452906333930, guid: 1372cb6473118b741a3ad7bc924d495d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145999452906333930, guid: 1372cb6473118b741a3ad7bc924d495d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145999452906333930, guid: 1372cb6473118b741a3ad7bc924d495d, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145999452906333930, guid: 1372cb6473118b741a3ad7bc924d495d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145999452906333930, guid: 1372cb6473118b741a3ad7bc924d495d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 228
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145999452906333930, guid: 1372cb6473118b741a3ad7bc924d495d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 101
+      objectReference: {fileID: 0}
+    - target: {fileID: 7276738824376500739, guid: 1372cb6473118b741a3ad7bc924d495d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8117142464648682179, guid: 1372cb6473118b741a3ad7bc924d495d, type: 3}
       propertyPath: testData
       value: 

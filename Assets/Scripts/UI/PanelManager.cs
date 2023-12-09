@@ -17,4 +17,7 @@ public class PanelManager : MonoBehaviour
             icon.gameObject.SetActive(true);
         }
     }
+
+    private void OnEnable() => CombinationDatabase.OnCorrectCombination += AddNewIcon;
+    private void OnDisable() => CombinationDatabase.OnCorrectCombination -= AddNewIcon;
 }

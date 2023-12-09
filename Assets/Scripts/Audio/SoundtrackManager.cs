@@ -61,9 +61,10 @@ namespace EasyAudioSystem
             }
         }
 
-        private void StartLayerTwoFade()
+        private void StartLayerTwoFade(AnimalSO animal)
         {
             if (_isLayerTwoPlaying) return;
+            _isLayerTwoPlaying = true;
             _layerTwo.source.DOFade(_soundtrackVolume, 2f).OnComplete(() => StartCoroutine(CompleteLayerTwoFade()));
         }
 
@@ -78,13 +79,25 @@ namespace EasyAudioSystem
             if (scene.name == "Game")
             {
                 // game scene
-                _layerOne.source.DOFade(_soundtrackVolume - 0.2f, 3f);
+                Debug.Log("Game scene loaded");
+                _layerOne.source.DOFade(_soundtrackVolume - (_soundtrackVolume * 0.2f), 3f);
             }
 
             else if (scene.name == "MainMenu")
             {
                 // main menu scene
                 _layerOne.source.DOFade(0, 3f);
+            }
+
+            else if (scene.name == "EndScreen")
+            {
+                // end scene
+                if (_isLayerTwoPlaying)
+                {
+                    _layerTwo.source.DOKill();
+                    StopAllCoroutines();
+                }
+                _layerTwo.source.DOFade(_soundtrackVolume, 1f);
             }
         }
 
